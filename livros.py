@@ -89,3 +89,11 @@ def emprestimo(lista, menu):
     print("Pressione ENTER para voltar ao menu principal.")
     input()
     menu()
+
+    return None
+
+        
+    def buscar_por_id(lista, id_livro):
+    for livro in lista:
+        if livro["id"] == id_livro:
+            return livro
