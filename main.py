@@ -4,29 +4,31 @@ from livros import cadastrar_livro, consultar_livro, emprestimo, buscar_por_id, 
 livros = []
 
 ## SubMenu para consultar livros
-def menu_consulta():
+def menu_consulta(menu):
   print("======= CONSULTA DE LIVROS =======\n")
   print("1 - Consultar todos os livros")
   print("2 - Consultar livro por ID")
   print("3 - Consultar livro por título")
   print("4 - Consultar livro por autor")
-  print("3 - Voltar ao menu principal")
+  print("5 - Voltar ao menu principal")
 
   option = input("Escolha uma opção usando os números: ")
 
   if option == "1":
-    consultar_livro(livros, menu)
+    consultar_livro(livros)
   elif option == "2":
-    buscar_por_id(livros, menu)
+    buscar_por_id(livros)
   elif option == "3":
-    buscar_por_titulo(livros, menu)
+    buscar_por_titulo(livros)
   elif option == "4":
-    buscar_por_autor(livros, menu)
+    buscar_por_autor(livros)
   elif option == "5":
     menu()
   else:
     print("Opção inválida. Tente novamente.")
-    menu_consulta()
+    menu_consulta(menu)
+
+  menu()
 
 
 ## Interface terminal inicial
@@ -43,7 +45,7 @@ def menu():
   if option == "1":
     cadastrar_livro(livros, menu)
   elif option == "2":
-    consultar_livro(livros, menu)
+    menu_consulta(menu)
   elif option == "3":
     emprestimo(livros, menu)
   elif option == "4":

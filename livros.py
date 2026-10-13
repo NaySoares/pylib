@@ -25,6 +25,9 @@ def mensagem_sem_registro(msg, menu):
     input()
     menu()
 
+def mostrar_livro(livro):
+    status = "Disponível" if livro["disponivel"] else "Indisponível"
+    print(f"ID: {livro['id']}, Título: {livro['titulo']}, Autor: {livro['autor']}, Ano: {livro['ano']}, Status: {status}")
 
 def cadastrar_livro(lista, menu):
     titulo = input("Digite o título do livro: ")
@@ -56,18 +59,14 @@ def cadastrar_livro(lista, menu):
     menu()
 
 
-def consultar_livro(lista, menu):
+def consultar_livro(lista):
     if not lista:
         mensagem_sem_registro("Nenhum livro cadastrado para consulta.\n", menu)
         return
 
     print("======= CONSULTA DE LIVROS =======\n")
     for livro in lista:
-        status = "Disponível" if livro["disponivel"] else "Indisponível"
-        print(f"ID: {livro['id']}, Título: {livro['titulo']}, Autor: {livro['autor']}, Ano: {livro['ano']}, Status: {status}")
-    print("\n")
-    menu()
-
+        mostrar_livro(livro)
 
 def emprestimo(lista, menu):
     if not lista:
@@ -91,30 +90,57 @@ def emprestimo(lista, menu):
     menu()
 
 
-def buscar_por_id(lista, id_livro):
+def buscar_por_id(lista):
+    if not lista:
+        mensagem_sem_registro("Nenhum livro cadastrado para consulta.\n", menu)
+        return
+
+    print("======= CONSULTA DE LIVROS =======\n")
+    id = input("Digite o ID do livro que deseja consultar: ")
+    while not id.isdigit() or len(id) != 4:
+        print("ID inválido. Digite um ID de 4 dígitos.")
+        id = input("Digite o ID do livro que deseja consultar: ")
+
     for livro in lista:
-        if livro["id"] == id_livro:
-            return livro
-    return None
+        if livro["id"] == id:
+            return mostrar_livro(livro)
+
+    print("Livro não encontrado.")
 
 
-def buscar_por_titulo(lista, titulo):
-    encontrados = []
+def buscar_por_titulo(lista):
+    if not lista:
+        mensagem_sem_registro("Nenhum livro cadastrado para consulta.\n", menu)
+        return
+
+    print("======= CONSULTA DE LIVROS =======\n")
+
+    titulo = input("Digite o título do livro que deseja consultar: ")
+    while not titulo.strip():
+        print("O título do livro não pode ser vazio. Tente novamente.")
+        titulo = input("Digite o título do livro que deseja consultar: ")
 
     for livro in lista:
         if titulo.lower() in livro["titulo"].lower():
-            encontrados.append(livro)
+            return mostrar_livro(livro)
 
-    return encontrados
+    print("Livro não encontrado.")
 
 
-def buscar_por_autor(lista, autor):
-    encontrados = []
+def buscar_por_autor(lista):
+    if not lista:
+        mensagem_sem_registro("Nenhum livro cadastrado para consulta.\n", menu)
+        return
+
+    print("======= CONSULTA DE LIVROS =======\n")
+    autor = input("Digite o autor do livro que deseja consultar: ")
+    while not autor.strip():
+        print("O autor do livro não pode ser vazio. Tente novamente.")
+        autor = input("Digite o autor do livro que deseja consultar: ")
 
     for livro in lista:
         if autor.lower() in livro["autor"].lower():
-            encontrados.append(livro)
+            return mostrar_livro(livro)
 
-    return encontrados
-
+    print("Livro não encontrado.")
 
