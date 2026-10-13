@@ -144,3 +144,25 @@ def buscar_por_autor(lista):
 
     print("Livro não encontrado.")
 
+
+def devolucao(lista, menu):
+    if not lista:
+        mensagem_sem_registro("Nenhum livro cadastrado para empréstimo.\n", menu)
+        return
+
+    id_ou_titulo_livro = input("Digite o ID ou título do livro que deseja devolver: ")
+    for livro in lista:
+        if livro["id"] == id_ou_titulo_livro or livro["titulo"].lower() == id_ou_titulo_livro.lower():
+            if not livro["disponivel"]:
+                livro["disponivel"] = True
+                print(f"Livro '{livro['titulo']}' devolvido com sucesso!\n")
+            else:
+                print(f"Livro '{livro['titulo']}' não está emprestado.\n")
+            break
+    else:
+        print("Livro não encontrado.\n")
+
+    print("Pressione ENTER para voltar ao menu principal.")
+    input()
+    menu()
+

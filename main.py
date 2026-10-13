@@ -1,4 +1,4 @@
-from livros import cadastrar_livro, consultar_livro, emprestimo, buscar_por_id, buscar_por_titulo, buscar_por_autor
+from livros import cadastrar_livro, consultar_livro, emprestimo, buscar_por_id, buscar_por_titulo, buscar_por_autor, devolucao
 
 ## Lista de livros cadastrados
 livros = []
