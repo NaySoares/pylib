@@ -90,9 +90,7 @@ def emprestimo(lista, menu):
     input()
     menu()
 
-    return None
 
-        
 def buscar_por_id(lista, id_livro):
     for livro in lista:
         if livro["id"] == id_livro:
