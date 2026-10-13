@@ -4,6 +4,8 @@
 Desenvolver um sistema simplificado de biblioteca usando o paradigma imperativo para fixação de conhecimento.
 O sistema deve possuir, pelo menos, cadastro de livros, consulta, empréstimo e devolução. Não é necessário interface gráfica podendo ser feita a utilização do terminal para a apresentação do sistema em funcionamento.
 
+O sistema é executado diretamente no terminal com apresentado na etapa "execução" abaixo, as informações técnicas estão descritas na etapa "RF e RNF" também logo abaixo.
+
 ## PARTICIPANTES
 - Elienai Soares @NaySoares
 - Luisa Cruz
