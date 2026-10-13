@@ -10,6 +10,9 @@ O sistema é executado diretamente no terminal com apresentado na etapa "execuç
 - Elienai Soares @NaySoares
 - Luisa Cruz
 
+## Video - demostração
+https://drive.google.com/file/d/1GflVT9eDex-A7bY5cGQAZOClK4_MS2g7/view?usp=drive_link
+
 ## COMO EXECUTAR
 
 ### Pré-requisitos
