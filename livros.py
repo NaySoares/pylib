@@ -99,3 +99,24 @@ def buscar_por_id(lista, id_livro):
             return livro
     return None
 
+
+def buscar_por_titulo(lista, titulo):
+    encontrados = []
+
+    for livro in lista:
+        if titulo.lower() in livro["titulo"].lower():
+            encontrados.append(livro)
+
+    return encontrados
+
+
+def buscar_por_autor(lista, autor):
+    encontrados = []
+
+    for livro in lista:
+        if autor.lower() in livro["autor"].lower():
+            encontrados.append(livro)
+
+    return encontrados
+
+
